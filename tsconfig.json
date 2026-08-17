@@ -10,5 +10,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["automation/**/*.ts", "eslint.config.js"]
+  "include": ["automation/**/*.ts", "playwright.config.ts", "eslint.config.js"]
 }
