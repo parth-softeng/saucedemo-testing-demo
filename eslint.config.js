@@ -8,6 +8,7 @@ module.exports = tseslint.config(
       'node_modules/**',
       '*.config.ts',
       'eslint.config.js',
+      'prettier.config.js',
     ],
   },
   js.configs.recommended,
