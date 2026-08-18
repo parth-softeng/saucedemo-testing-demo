@@ -1,4 +1,4 @@
-import { expect, test as base, type Page } from '@playwright/test';
+import { expect, test as base } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
 export type AuthFixtures = {
