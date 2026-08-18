@@ -20,6 +20,30 @@ test.describe('Login page', () => {
     await loginPage.goto();
   });
 
+  // 1 scenario asserting UI state after browser reload
+  test('maintains session after browser reload', async ({ page, loginPage }) => {
+    await loginPage.login(STANDARD_USER.username, STANDARD_USER.password);
+    await expect(page).toHaveURL(/inventory\.html/);
+
+    await page.reload();
+    await expect(page).toHaveURL(/inventory\.html/);
+    await expect(page.locator('[data-test="title"]')).toHaveText('Products');
+  });
+
+  // 1 scenario asserting UI state after storage manipulation
+  test('clears session after storage manipulation', async ({ page, loginPage }) => {
+    await loginPage.login(STANDARD_USER.username, STANDARD_USER.password);
+    await expect(page).toHaveURL(/inventory\.html/);
+
+    await page.evaluate(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+    });
+    await page.context().clearCookies();
+    await page.reload();
+    await expect(page).toHaveURL('/');
+  });
+
   // 1 data-driven scenario (parameterized inputs)
   test.describe('Positive login scenarios', () => {
     test('logs in successfully with standard_user', async ({
