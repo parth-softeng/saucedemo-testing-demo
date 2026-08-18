@@ -6,16 +6,16 @@ A 60-minute exploratory session was performed on SauceDemo, covering Login, Prod
 
 ## Test Environment
 
-| Property | Value |
-|---|---|
-| Application | SauceDemo |
-| Browser | Google Chrome 150.x |
-| OS | Ubuntu 24.04 LTS |
-| Viewport | 1920 × 1080 |
-| Test Type | Exploratory Testing |
-| Session Duration | 60 minutes |
-| Tester | QA Engineer |
-| Test Date | 2026-08-17 |
+| Property         | Value               |
+| ---------------- | ------------------- |
+| Application      | SauceDemo           |
+| Browser          | Google Chrome 150.x |
+| OS               | Ubuntu 24.04 LTS    |
+| Viewport         | 1920 × 1080         |
+| Test Type        | Exploratory Testing |
+| Session Duration | 60 minutes          |
+| Tester           | QA Engineer         |
+| Test Date        | 2026-08-17          |
 
 ---
 

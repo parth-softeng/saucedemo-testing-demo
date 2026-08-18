@@ -21,7 +21,10 @@ test.describe('Login page', () => {
   });
 
   // 1 scenario asserting UI state after browser reload
-  test('maintains session after browser reload', async ({ page, loginPage }) => {
+  test('maintains session after browser reload', async ({
+    page,
+    loginPage,
+  }) => {
     await loginPage.login(STANDARD_USER.username, STANDARD_USER.password);
     await expect(page).toHaveURL(/inventory\.html/);
 
@@ -31,7 +34,10 @@ test.describe('Login page', () => {
   });
 
   // 1 scenario asserting UI state after storage manipulation
-  test('clears session after storage manipulation', async ({ page, loginPage }) => {
+  test('clears session after storage manipulation', async ({
+    page,
+    loginPage,
+  }) => {
     await loginPage.login(STANDARD_USER.username, STANDARD_USER.password);
     await expect(page).toHaveURL(/inventory\.html/);
 
@@ -148,5 +154,4 @@ test.describe('Login page', () => {
       await expect(loginPage.errorMessage).toBeVisible();
     });
   });
-
 });

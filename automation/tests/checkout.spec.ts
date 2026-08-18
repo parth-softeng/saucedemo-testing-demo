@@ -4,16 +4,13 @@ import { STANDARD_USER } from '../fixtures/users.fixture';
 
 test.describe('Checkout flow', () => {
   // 1 happy-path E2E scenario
-  test('completes a full order and downloads the order PDF', async (
-    {
-      page,
-      loginPage,
-      inventoryPage,
-      cartPage,
-      checkoutPage,
-    },
-    testInfo,
-  ) => {
+  test('completes a full order and downloads the order PDF', async ({
+    page,
+    loginPage,
+    inventoryPage,
+    cartPage,
+    checkoutPage,
+  }, testInfo) => {
     await loginPage.login(STANDARD_USER.username, STANDARD_USER.password);
     await expect(page).toHaveURL(/inventory\.html/);
 

@@ -24,7 +24,7 @@ const SORT_CASES: SortCase[] = [
     label: 'Price (low to high)',
     kind: 'price',
     direction: 'asc',
-  }
+  },
 ];
 
 function sortedNames(names: string[], direction: SortDirection): string[] {

@@ -21,7 +21,11 @@ export class CheckoutPage {
     this.pdfDownloadButton = page.locator('[data-test="generate-pdf-order"]');
   }
 
-  async fillInformation(firstName: string, lastName: string, postalCode: string) {
+  async fillInformation(
+    firstName: string,
+    lastName: string,
+    postalCode: string,
+  ) {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.postalCodeInput.fill(postalCode);
