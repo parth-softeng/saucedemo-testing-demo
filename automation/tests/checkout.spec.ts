@@ -3,6 +3,7 @@ import { expect, test } from '../fixtures/checkout.fixture';
 import { STANDARD_USER } from '../fixtures/users.fixture';
 
 test.describe('Checkout flow', () => {
+  // 1 happy-path E2E scenario
   test('completes a full order and downloads the order PDF', async (
     {
       page,

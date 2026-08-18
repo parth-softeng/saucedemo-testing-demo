@@ -20,7 +20,7 @@ test.describe('Login page', () => {
     await loginPage.goto();
   });
 
-  // 1. Positive login scenarios
+  // 1 data-driven scenario (parameterized inputs)
   test.describe('Positive login scenarios', () => {
     test('logs in successfully with standard_user', async ({
       page,
@@ -72,7 +72,7 @@ test.describe('Login page', () => {
     });
   });
 
-  // 2. Negative login scenarios
+  // 1 negative auth scenario
   test.describe('Negative login scenarios', () => {
     test('shows validation error when username is empty', async ({
       loginPage,

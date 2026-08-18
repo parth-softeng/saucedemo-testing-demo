@@ -6,6 +6,9 @@ module.exports = tseslint.config(
   {
     ignores: [
       'node_modules/**',
+      'test-results/**',
+      'playwright-report/**',
+      'automation/.auth/**',
       '*.config.ts',
       'eslint.config.js',
       'prettier.config.js',
