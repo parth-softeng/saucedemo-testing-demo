@@ -19,37 +19,43 @@ A 60-minute exploratory session was performed on SauceDemo, covering Login, Prod
 
 ---
 
-# BUG-001 — Technical Text Shown in Backpack Description
+# BUG-001 — Cart Icon Not Properly Positioned in Desktop and Mobile Views
 
 ### Environment
 
-- **Browser:** Google Chrome 150.x
-- **OS:** Ubuntu 24.04 LTS
-- **Viewport:** 1920 × 1080
+* **Browser:** Google Chrome 150.x
+* **OS:** Ubuntu 24.04 LTS
+* **Desktop Viewport:** 1920 × 1080
+* **User:** `visual_user`
+* **Mobile Viewport:** Mobile responsive view
 
 ### Preconditions
 
-- User is logged in.
-- Backpack is added to the cart.
+* User is logged in.
+* User is on the Products page.
 
 ### Steps to Reproduce
 
-1. Login.
-2. Add **Sauce Labs Backpack** to the cart.
-3. Open the Cart.
-4. Check the product description.
+1. Login with `visual_user`.
+2. Open the **Products** page.
+3. Check the position of the Cart icon on the top navigation bar in desktop view.
+4. Switch to a mobile/responsive view.
+5. Check the position of the Cart icon again.
 
 ### Expected Result
 
-The description should contain normal customer-facing product text.
+The Cart icon should be properly aligned in the top navigation bar in both desktop and mobile views, with consistent spacing and alignment with the other UI elements.
 
 ### Actual Result
 
-The description contains **`carry.allTheThings()`**.
+The Cart icon is not properly positioned.
+
+* In desktop view, the Cart icon appears too close to the sorting control and does not have proper spacing.
+* In mobile view, the Cart icon position is also not properly aligned with the other navigation elements.
 
 ### Impact
 
-Looks like internal/developer text and makes the product information look unfinished.
+The incorrect positioning makes the UI look unbalanced and less professional, especially when viewing the application on different screen sizes.
 
 ### Severity
 
@@ -61,41 +67,146 @@ Looks like internal/developer text and makes the product information look unfini
 
 ### Attachment
 
-`manual-testing/evidence/bug-001.png`
+`manual-testing/evidence/bug-001-cart-icon-alignment.png`, `manual-testing/evidence/bug-0011-cart-icon-alignment.png`
 
 ---
 
-# BUG-002 — Cannot Increase Product Quantity in Cart
+# BUG-002 — Checkout Button Is Incorrectly Positioned on Cart Page
 
 ### Environment
 
-- **Browser:** Google Chrome 150.x
-- **OS:** Ubuntu 24.04 LTS
-- **Viewport:** 1920 × 1080
+* **Browser:** Google Chrome 150.x
+* **OS:** Ubuntu 24.04 LTS
+* **User:** `visual_user`
+* **Viewport:** 1920 × 1080
 
 ### Preconditions
 
-- User is logged in.
-- A product is available.
+* User is logged in.
+* At least one product is added to the cart.
+* User is on the **Your Cart** page.
 
 ### Steps to Reproduce
 
-1. Login.
+1. Login with `visual_user`.
 2. Add a product to the cart.
-3. Open the Cart.
-4. Try to increase its quantity.
+3. Open the **Your Cart** page.
+4. Check the position of the **Checkout** button.
 
 ### Expected Result
 
-The cart should provide a way to increase the quantity of an item.
+The **Checkout** button should be properly positioned within the cart page layout, close to the cart content and aligned consistently with the other cart controls.
 
 ### Actual Result
 
-There is no quantity control. Each item stays at quantity **1**.
+The **Checkout** button is displayed at the top-right corner of the page, separated from the cart content. It does not appear to be positioned correctly within the cart page layout.
 
 ### Impact
 
-Users cannot buy more than one unit of the same product in one order.
+The incorrect button positioning makes the cart page look unbalanced and may make the Checkout action less obvious to users.
+
+### Severity
+
+**Low**
+
+### Priority
+
+**P3 — Low**
+
+### Attachment
+
+`manual-testing/evidence/bug-0021-checkout-button-position.png`, `manual-testing/evidence/bug-0022-checkout-button-position.png`
+
+---
+
+# BUG-003 — Cancel Button Arrow Icon Is Misaligned
+
+### Environment
+
+* **Browser:** Google Chrome 150.x
+* **OS:** Ubuntu 24.04 LTS
+* **Viewport:** 1920 × 1080
+* **User:** `visual_user`
+* **Page:** Checkout: Your Information
+
+### Preconditions
+
+* User is logged in.
+* At least one product is added to the cart.
+* User is on the **Checkout: Your Information** page.
+
+### Steps to Reproduce
+
+1. Login with `visual_user`.
+2. Add a product to the cart.
+3. Open the Cart and click **Checkout**.
+4. Navigate to the **Checkout: Your Information** page.
+5. Check the **Cancel** button at the bottom-left of the page.
+6. Observe the arrow icon and the **Cancel** text inside the button.
+
+### Expected Result
+
+The arrow icon should be properly aligned with the **Cancel** text and should have consistent spacing within the button.
+
+### Actual Result
+
+The arrow icon inside the **Cancel** button is not properly aligned with the **Cancel** text. The icon appears too far to the left, creating uneven spacing and making the button content look misaligned.
+
+### Impact
+
+The incorrect icon alignment makes the Cancel button look visually inconsistent and reduces the overall UI quality of the checkout page.
+
+### Severity
+
+**Low**
+
+### Priority
+
+**P3 — Low**
+
+### Attachment
+
+`manual-testing/evidence/bug-003-cancel-button-icon-alignment.png`
+
+---
+
+# BUG-004 — Sidebar Does Not Close After Selecting Menu Options
+
+### Environment
+
+* **Browser:** Google Chrome 150.x
+* **OS:** Ubuntu 24.04 LTS
+* **Viewport:** 390 × 844
+* **User:** `error_user`
+* **Device:** iPhone 12 Pro
+
+### Preconditions
+
+* User is logged in.
+* User is on the Products page.
+* The navigation sidebar is open.
+
+### Steps to Reproduce
+
+1. Login with `error_user`.
+2. Open the navigation menu.
+3. Click **All Items**.
+4. Check whether the sidebar closes and the Products page is displayed.
+5. Open the navigation menu again.
+6. Click **Reset App State**.
+7. Check the sidebar and page content.
+
+### Expected Result
+
+After clicking **All Items** or **Reset App State**, the sidebar should close automatically and the corresponding page/content should be displayed.
+
+### Actual Result
+
+After selecting **All Items** or **Reset App State**, the sidebar remains open instead of closing automatically. The user has to manually close the sidebar using the **X** icon.
+
+### Impact
+
+The sidebar stays open after selecting an option, which makes the navigation flow less intuitive and requires an extra action from the user.
 
 ### Severity
 
@@ -107,149 +218,64 @@ Users cannot buy more than one unit of the same product in one order.
 
 ### Attachment
 
-`manual-testing/evidence/bug-002.png`
+`manual-testing/evidence/bug-004-sidebar-not-closing.png`
+
 
 ---
 
-# BUG-003 — Technical Text Shown in Product Name
+# BUG-005 — Sorting Error Is Displayed as a Browser JavaScript Alert
 
 ### Environment
 
-- **Browser:** Google Chrome 150.x
-- **OS:** Ubuntu 24.04 LTS
-- **Viewport:** 1920 × 1080
+* **Browser:** Google Chrome 150.x
+* **OS:** Ubuntu 24.04 LTS
+* **Viewport:** 1920 × 1080
+* **User:** `error_user`
+* **Page:** Products / Inventory
 
 ### Preconditions
 
-- User is logged in.
-- User is on the Products page.
+* User is logged in.
+* User is on the **Products** page.
+* Multiple products are displayed.
 
 ### Steps to Reproduce
 
-1. Login.
-2. Open the Products page.
-3. Check the product names.
-4. Find **`Test.allTheThings() T-Shirt (Red)`**.
+1. Login with `error_user`.
+2. Open the **Products** page.
+3. Click the sorting dropdown.
+4. Select a different sorting option.
+5. Observe the error message displayed by the application.
 
 ### Expected Result
 
-Product names should contain normal customer-facing text.
+If sorting fails, the application should display a proper in-page error message, notification, or other UI component that matches the application's design.
+
+The error should be presented in a user-friendly way without interrupting the browser session.
 
 ### Actual Result
 
-The product name contains **`Test.allTheThings()`**, which looks like developer/test text.
+A native browser JavaScript alert is displayed with the message:
+
+> **"Sorting is broken! This error has been reported to Backtrace."**
+
+The alert blocks the page until the user clicks **OK**.
 
 ### Impact
 
-Makes the product catalog look unfinished.
+The browser alert interrupts the normal user experience and looks like a developer/debug message rather than a customer-facing error notification.
 
 ### Severity
 
-**Low**
+**Medium**
 
 ### Priority
 
-**P3 — Low**
+**P2 — Medium**
 
 ### Attachment
 
-`manual-testing/evidence/bug-003.png`
-
----
-
-# BUG-004 — Unprofessional Text in Locked User Error
-
-### Environment
-
-- **Browser:** Google Chrome 150.x
-- **OS:** Ubuntu 24.04 LTS
-- **Viewport:** 1920 × 1080
-
-### Preconditions
-
-- User is on the login page.
-- Locked user account is available.
-
-### Steps to Reproduce
-
-1. Open the login page.
-2. Enter `locked_out_user`.
-3. Enter the valid password.
-4. Click **Login**.
-5. Check the error message.
-
-### Expected Result
-
-The user should see a clear message explaining that the account is locked.
-
-### Actual Result
-
-The message says:
-
-> **"Epic sadface: Sorry, this user has been locked out."**
-
-### Impact
-
-"Epic sadface" is unnecessary and does not look like normal customer-facing wording.
-
-### Severity
-
-**Low**
-
-### Priority
-
-**P3 — Low**
-
-### Attachment
-
-`manual-testing/evidence/bug-004.png`
-
----
-
-# BUG-005 — Cart Items Carry Over to Another User
-
-### Environment
-
-- **Browser:** Google Chrome 150.x
-- **OS:** Ubuntu 24.04 LTS
-- **Viewport:** 1920 × 1080
-
-### Preconditions
-
-- Two valid user accounts are available.
-- Both users use the same browser.
-
-### Steps to Reproduce
-
-1. Login as User A.
-2. Add a product to the cart.
-3. Logout.
-4. Login as User B.
-5. Open the Cart.
-
-### Expected Result
-
-User B should see only their own cart items.
-
-### Actual Result
-
-The product added by User A is still present after User B logs in.
-
-### Impact
-
-One user can see another user's cart data and could potentially place an incorrect order.
-
-### Severity
-
-**High**
-
-### Priority
-
-**P1 — High**
-
-### Attachment
-
-`manual-testing/evidence/bug-005.png`
+`manual-testing/evidence/bug-005-sorting-javascript-alert.png`
 
 ---
 
@@ -315,7 +341,7 @@ Users cannot reliably identify products from their images.
 
 ### Steps to Reproduce
 
-1. Login.
+1. Login as any user.
 2. Add a product to the cart.
 3. Go to Checkout.
 4. Enter invalid values in First Name, Last Name, and Postal Code.
